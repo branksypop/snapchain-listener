@@ -1,5 +1,9 @@
 # ---------- build stage ----------
 FROM rust:bookworm AS builder
+# protoc is required by prost-build during cargo build
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    protobuf-compiler \
+  && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 # Cache deps first for faster rebuilds
 COPY Cargo.toml Cargo.lock ./
