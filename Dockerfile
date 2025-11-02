@@ -15,12 +15,12 @@ RUN cargo build --release
 # ---------- runtime stage ----------
 FROM debian:bookworm-slim AS runner
 # Minimal CA certs so the node can speak TLS to peers if needed
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
 # ---- security: run as non-root
-RUN useradd -u 10001 -r -s /sbin/nologin appuser
-USER 10001:10001
+#RUN useradd -u 10001 -r -s /sbin/nologin appuser
+#USER 10001:10001
 
 # Copy the release binary from the builder
 # (the cargo package/binary is named "snapchain-listener")
