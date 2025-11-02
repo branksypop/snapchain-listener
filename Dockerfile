@@ -31,7 +31,7 @@ WORKDIR /app
 COPY --from=builder /app/target/release/snapchain-listener /app/snapchain-listener
 
 # ---- defaults per README (can be overridden at deploy time)
-ENV WS_PORT=8080 
+ENV WS_PORT=8000 
 #    RUST_LOG=info
 # DON'T bake BEARER_TOKEN into the image; set it as a Koyeb secret
 
