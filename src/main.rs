@@ -33,6 +33,8 @@ enum StreamMessage {
     Cast {
         fid: u64,
         text: String,
+        parent_cast_id: Option<u64>,
+        parent_url: String,
         embeds: Vec<String>,
         hash: Option<String>,
     },
