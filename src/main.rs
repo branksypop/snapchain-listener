@@ -310,6 +310,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
                                         let stream_msg = StreamMessage::Cast {
                                             fid: data.fid,
                                             text: cast.text.clone(),
+                                            parent_cast_id: cast.parent_cast_id.clone(),
+                                            parent_url: cast.parent_url,
                                             embeds: embed_urls.clone(),
                                             hash: Some(format!("0x{}", hash_hex)),
                                         };
